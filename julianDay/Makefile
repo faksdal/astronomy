@@ -26,7 +26,11 @@ all: $(SOURCES) $(EXECUTABLE)
 
 #	Linking
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
+	$(CC) $(OBJECTS) obj/main.o $(LDFLAGS) -o $@
+
+obj/main.o: main.cpp
+	$(CC) -MMD -MP $(CFLAGS) $< -o $@
+
 
 # The -MP adds a 'phony' target for all prerequisite headers
 # to stop 'make' complaining if you remove a header
