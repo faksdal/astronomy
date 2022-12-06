@@ -1,14 +1,14 @@
 /*
  *
- *	jdn.h
- *	created 16 Nov 2022 by jole
+ *	julianDay.h
+ *	created 6 Dec 2022 by jole
  *
  *	References:
  *		https://isbnsearch.org/isbn/0943396611
  *		https://observablehq.com/@danleesmith/meeus-solar-position-calculations
  *
- *	class jdnMeeus1998 holds an instance of a julian day number calculated from the date provided to the constructor
- *	The class accepts dates from both Julian and Gregorian calendars
+ *
+ *
  *
  *	Constructor parameters:
  * 		jdnYear:	the year as an integer, i.e. 2022 or -1
@@ -17,15 +17,10 @@
  *		jdnHour:	the hour of the day, 0-23, local time
  *		jdnMinute:	the minute of the hour 0-59, local time
  *		jdnSecond:	the second of the minute, 0-59, local time
+ *		jdnTz:		the timezone
+ *		jdnVerbose:	if true, prints out extra info during calculation
  *
- *	Data members:
- *		jdnGregorianDate:	holds true if the date provided is Gregorian, e.g. after Oct. 15th 1582. Otherwise it holds false
- *		jdnValidDate:		upon the transition from Julian to Gregorian calendars, there are 10 dates in our history that doesn't exist
- *							these dates are 5th - 14th Oct. 1582
- *		jdnJulianDay:		lorem ipsum
- *		jdnJulianCentury:	lorem ipsum
- *		T:					lorem ipsum
- *		jdnMeeus:			lorem ipsum
+ *
  *
  *	****************************************************************************************************
  *	The class is provided as-is without any warranty of any kind. Feel free to modify to your own needs!
@@ -33,36 +28,61 @@
  *
 */
 
-#ifndef __jdnMeeus1998_h__
-#define __jdnMeeus1998_h__
+#ifndef __julianDay_h__
+#define __julianDay_h__
+
+#include <math.h>
+#include <iostream>
 
 using namespace std;
 
-#include <math.h>
-#include <iomanip>
-#include <iostream>
+//enum Days {Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday};
+
+//#include <iomanip>
 
 
 
-class jdnMeeus1998 {
+class julianDay {
 
-	/*
-	bool	jdnGregorianDate, jdnValidDate, jdnVerbose;
-	short	jdnDay, jdnMonth, jdnHour, jdnMinute, jdnSecond, jdnTz, jdnFLOATWIDTH, jdnFLOATPRECISION;
+
+			//	True for dates in the Gregorian calendar, false otherwise
+	bool	jdnGregorianDate;
+
+			//	Some dates in our history doesn't exist; 5th - 14th of October 1582 were skipped during the
+			//	transition from the Julian to the Gregorian Calendar.
+			//	True for any other date
+	bool	jdnValidDate;
+
+			//	Set this to true if you want the calculation process to be verbose
+	bool	jdnVerbose;
+
+			//	These holds values for the date to be converted into Julian Day Number (JDN)
+	short	jdnDay, jdnMonth, jdnHour, jdnMinute, jdnSecond, jdnTz;
+
+			//	Precision formatters for terminal printing
+	short	jdnFLOATWIDTH, jdnFLOATPRECISION;
+
+			//	Value of the year being converted to JDN
 	int		jdnYear;
-	double	jdnJ2000;
 
-	double	jdnJulianDay, jdnJulianCentury, jdnJdnNoon, jdnJulianCenturyNoon;
+			//	These are the calculated values for JDN and the Julian Century (JC)
+			//	I also keep the JDN and JC for noon, to be used for calculating sunrise an sunset
+	double	jdnJulianDay, jdnJulianCentury, jdnJdnNoon, jdnJulianCenturyNoon, jdnJ2000;
+
+	enum Days {Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday};
+	Days	dayOfWeek;
+	const char	*dayName[7] = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+
 
 	void	jdnParseDate(void);
 	void	jdnCalculateJdn(void);
-	*/
+
 
 
 public:
-	/*
-	jdnMeeus1998(int year, short month, short day, short hour, short minute, short second, short tz, bool verbose);
-	virtual ~jdnMeeus1998();
+
+	julianDay(int year, short month, short day, short hour, short minute, short second, short tz, bool verbose);
+	virtual ~julianDay();
 
 
 	//
@@ -79,8 +99,11 @@ public:
 	double	jdnGetJdnNoon(void)					{ return jdnJdnNoon; }
 	double	jdnGetJdnJulianCentury(void)		{ return jdnJulianCentury; }
 	double	jdnGetJdnJulianCenturyNoon(void)	{ return jdnJulianCenturyNoon; }
-	//***************************************************************************
+	Days	jdnGetDay(void)						{ return dayOfWeek; }
 
+	const char*	jdnGetDayName(short /*Days*/ _day)			{ cout << dayName[_day]; return dayName[_day]; }
+
+	/*
 	void	jdnSetJdnJulianCentury(double _jdnJulianCentury) {jdnJulianCentury = _jdnJulianCentury;}
 	void	jdnSetJdnJulianCenturyNoon(double _jdnJulianCenturyNoon){jdnJulianCenturyNoon =_jdnJulianCenturyNoon;}
 
@@ -90,6 +113,8 @@ public:
 	void jdnPrintOutput(void);
 	*/
 
-};
+};	//	class julianDay{}
 
-#endif // __jdnMeeus1998_h__
+
+
+#endif	//	__julianDay_h__
