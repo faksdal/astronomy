@@ -32,7 +32,9 @@
 #define __julianDay_h__
 
 #include <math.h>
+#include <iomanip>
 #include <iostream>
+
 
 using namespace std;
 
@@ -56,22 +58,27 @@ class julianDay {
 			//	Set this to true if you want the calculation process to be verbose
 	bool	jdnVerbose;
 
+	bool	jdnIsLeap;
+
 			//	These holds values for the date to be converted into Julian Day Number (JDN)
 	short	jdnDay, jdnMonth, jdnHour, jdnMinute, jdnSecond, jdnTz;
 
 			//	Precision formatters for terminal printing
 	short	jdnFLOATWIDTH, jdnFLOATPRECISION;
 
+	short	jdnDayOfTheYear;
+
 			//	Value of the year being converted to JDN
 	int		jdnYear;
 
 			//	These are the calculated values for JDN and the Julian Century (JC)
-			//	I also keep the JDN and JC for noon, to be used for calculating sunrise an sunset
+			//	I also keep the JDN and JC for noon, to be used for calculating
+			//	the day of the week, sunrise an sunset
 	double	jdnJulianDay, jdnJulianCentury, jdnJdnNoon, jdnJulianCenturyNoon, jdnJ2000;
 
-	enum Days {Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday};
-	Days	dayOfWeek;
-	const char	*dayName[7] = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+	//enum Days {Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday};
+	//Days	dayOfWeek;
+	const char	*dayOfTheWeek[7] = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
 
 
 	void	jdnParseDate(void);
@@ -89,6 +96,7 @@ public:
 	// inline public functions providing data member values
 	//
 	int		jdnGetJdnYear(void)					{ return jdnYear; }
+	int		jdnGetDayOfTheYear(void)			{ return jdnDayOfTheYear; }
 	short	jdnGetJdnMonth(void)				{ return jdnMonth; }
 	short	jdnGetJdnDay(void)					{ return jdnDay; }
 	short	jdnGetJdnHour(void)					{ return jdnHour; }
@@ -99,9 +107,11 @@ public:
 	double	jdnGetJdnNoon(void)					{ return jdnJdnNoon; }
 	double	jdnGetJdnJulianCentury(void)		{ return jdnJulianCentury; }
 	double	jdnGetJdnJulianCenturyNoon(void)	{ return jdnJulianCenturyNoon; }
-	Days	jdnGetDay(void)						{ return dayOfWeek; }
 
-	const char*	jdnGetDayName(short /*Days*/ _day)			{ cout << dayName[_day]; return dayName[_day]; }
+	bool	jdnGetIsLeap(void)					{ return jdnIsLeap; }
+
+
+	const char*	jdnGetDayName(void);
 
 	/*
 	void	jdnSetJdnJulianCentury(double _jdnJulianCentury) {jdnJulianCentury = _jdnJulianCentury;}

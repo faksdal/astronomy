@@ -27,6 +27,24 @@ void julianDay::jdnParseDate(void)
 	jdnGregorianDate	= true;
 
 	//
+	//	Default is no leap year
+	//
+	jdnIsLeap			= false;
+	if(jdnYear > 1582){
+		if( ((jdnYear % 4) == 0) && (((jdnYear % 100) != 0) || ((jdnYear % 400) == 0))){
+			if(jdnVerbose)
+				cout << jdnYear << " is a Leap year :-)" << endl;
+			jdnIsLeap	= true;
+		}
+		else{
+			if(jdnVerbose)
+				cout << jdnYear << " is not Leap year!" << endl;
+			//jdnIsLeap	= false;
+		}
+	}
+
+
+	//
 	//	If we're in 1582, check for valid date. There are ten missing dates this year as we went from
 	//	using the Julian to the Gregorian calendar.
 	//

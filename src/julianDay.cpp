@@ -23,7 +23,7 @@
 
 #include "julianDay.h"
 
-//#include <math.h>
+#include <math.h>
 //#include <stdio.h>
 //#include <string>
 //#include <iostream>
@@ -31,6 +31,22 @@
 using namespace std;
 
 
+
+const char*	julianDay::jdnGetDayName(void)
+{
+	long	dividend, divisor, quotient;
+
+	dividend = jdnJdnNoon + 1;
+	divisor = 7;
+	quotient = dividend % divisor;
+
+	//cout	<< "Dividend: " << setw(25) << setprecision(15) << setfill(' ') << dividend << endl;
+	//cout	<< "Divisor: " << setw(25) << setprecision(15) << setfill(' ') << divisor << endl;
+	//cout	<< "Quotient: " << setw(25) << setprecision(15) << setfill(' ') << quotient << endl;
+
+	return dayOfTheWeek[quotient];
+	//return dayName[quotient];
+}
 
 julianDay::julianDay(int year, short month, short day, short hour, short minute, short second, short tz, bool verbose)
 {
@@ -52,6 +68,7 @@ julianDay::julianDay(int year, short month, short day, short hour, short minute,
 	//	See Meeus, Jean Astronomical Algorithms second edition p.163 (25.1)
 	//
 	jdnJ2000	= 2451545.;
+
 
 
 	//
@@ -78,8 +95,15 @@ julianDay::julianDay(int year, short month, short day, short hour, short minute,
 	//
 	jdnCalculateJdn();
 
-	dayOfWeek = Wednesday;
-	cout << "Day: " << dayOfWeek << endl;
+	//
+	//	Calculate the day number of the year
+	//
+	//int K = jdnIsLeap==true ? 1 : 2;
+	//cout << "K = " << K << endl;
+	jdnDayOfTheYear = int((275*jdnMonth) / 9) - ((jdnIsLeap ? 1 : 2) * int((jdnMonth + 9)/12)) + jdnDay - 30;
+
+	//dayOfWeek = Wednesday;
+	//cout << "Day: " << dayOfWeek << endl;
 
 
 
