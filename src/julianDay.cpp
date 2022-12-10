@@ -34,17 +34,19 @@ using namespace std;
 
 const char*	julianDay::jdnGetDayName(void)
 {
+	/*
 	long	dividend, divisor, quotient;
 
 	dividend = jdnJdnNoon + 1;
 	divisor = 7;
 	quotient = dividend % divisor;
+	*/
 
 	//cout	<< "Dividend: " << setw(25) << setprecision(15) << setfill(' ') << dividend << endl;
 	//cout	<< "Divisor: " << setw(25) << setprecision(15) << setfill(' ') << divisor << endl;
 	//cout	<< "Quotient: " << setw(25) << setprecision(15) << setfill(' ') << quotient << endl;
 
-	return dayOfTheWeek[quotient];
+	return dayOfTheWeek[long(jdnJdnNoon+1) % (7)];
 	//return dayName[quotient];
 }
 

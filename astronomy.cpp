@@ -19,9 +19,10 @@ using namespace std;
 
 //#include "printUsage.h"
 
-#include "sun.h"
+#include "aSun.h"
 #include "julianDay.h"
 #include "parseOptarg.h"
+//#include "aSun.h"
 
 
 
@@ -138,48 +139,18 @@ int main(int argc, char *argv[])
 
 
 
+	aSun *sun = new aSun(year, month, day, hour, minute, second, timezone, lat, lon, dst, verbose);
 
-	// Try to allocate memory for an instance of class sunpos
-	sun *sp = new sun(year, month, day, hour, minute, second, timezone, lat, lon, dst, verbose);
+	cout << "Sun's geometric mean longitude: " << sun->aSunGetGeometricMeanLongitude() << endl;
+	cout << "Sun's mean anomaly: " << sun->aSunGetMeanAnomaly() << endl;
 
 	//	handle any error that might occur
-	if(!sp){
+	/*if(!sl){
 		cout << "Allocation failed: " << "memory Error" << '\n';
 		exit(-1);
 	}
-
-	//
-	//	Print something if the user sets the verbose switch
-	//
-
-	if(verbose){
-		sp->sunPrintOutput();
-		//cout << "Print something useless..." << endl;
-
-		//cout << "The day is " << sp->jdnGetDayName() << ", day #" << sp->jdnGetDayOfTheYear() << endl;
-	}
-
-
-
-	/*
-	julianDay	*jdn = new julianDay(year, month, day, hour, minute, second, timezone, verbose);
-	if(!jdn){
-			cout << "Allocation failed: " << "memory Error" << '\n';
-			exit(-1);
-	}	// if(!jd)
-
-	if(verbose){
-		//	TODO	Print some meaningful info to the user...
-		//jd->jdnPrintOutput();
-		cout << "Print some info about the calculation process..." << endl;
-
-		cout << "Julian Day Number at noon (jdn): " << setw(25) << setprecision(15) << setfill(' ') << jdn->jdnGetJdnNoon() << endl;
-		cout << "The day is " << jdn->jdnGetDayName() << ", day #" << jdn->jdnGetDayOfTheYear() << endl;
-
-	}	// if(verbose)
-	*/
-
+	cout << "Sun's geometric mean longitude: " << sl->slGetGeometricMeanLongitude() << endl;
 
 	return 1;
-
+	*/
 }	//	int main(int argc, char *argv[])

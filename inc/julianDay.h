@@ -38,10 +38,6 @@
 
 using namespace std;
 
-//enum Days {Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday};
-
-//#include <iomanip>
-
 
 
 class julianDay {

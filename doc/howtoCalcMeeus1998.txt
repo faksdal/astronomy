@@ -1,0 +1,15 @@
+howtoCalcMeeus1998.txt
+ Created on: 3 Dec 2022
+     Author: jole
+
+     The following are taken from studying Meeus, Jean Astronomical algorithms second edition 1998, ISBN 0-943396-61-1.
+     This document is part of my sp project where I aim to calculate the Suns position in a command line utility using c++.
+
+In the introduction, Meeus says:
+	...in order to create a program for the calculation of the altitude of the Sun for a given time on a given 
+	date at a given place, one must first convert the date and time to Julian Day (Chapter 7), then calculate 
+	the Sun’s longitude for that instant (Chapter 25), its right ascension and declination (Chapter 13), the 
+	sidereal time (Chapter 12) and finally the required altitude of the Sun (Chapter 13).
+
+Following these instruction I will create a software model that gives me the Sun’s position for a given time, 
+on a given date at a given place.
