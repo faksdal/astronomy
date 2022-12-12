@@ -15,5 +15,11 @@ void aSun::aSunCalcGeometricMeanLongitude(double T)
 {
 	aSunGeometricMeanLongitude = fmod(280.46646 + T * (36000.76983 + T * 0.0003032), 360.);
 
+	//
+	//	Correct for negative values...
+	//
+	if(aSunGeometricMeanLongitude < 0)
+		aSunGeometricMeanLongitude += 360.;
+
 	return;
 }

@@ -41,12 +41,27 @@ aSun::aSun(	int		_year,
 	aSunFLOATWIDTH		= 25;
 	aSunFLOATPRECISION	= 15;
 
+	aSunLat	= _lat;
+	aSunLon	= _lon;
+
 
 	double T = jdnGetJdnJulianCentury();
 
 	aSunCalcGeometricMeanLongitude(T);
 	aSunCalcMeanAnomaly(T);
-
+	aSunCalcEccentricityOfEarthsOrbit(T);
+	aSunCalcEquationOfTheCenter(T);
+	aSunCalcTrueGeometricLongitude();
+	aSunCalcTrueAnomaly();
+	aSunCalcRadiusVector();
+	aSunCalcApparentLongitude(T);
+	aSunCalcMeanObliquityOfTheEcliptic(T);
+	//HA_aSunCalcMeanObliquityOfTheEcliptic(T);
+	aSunCalcObliquityCorrection(T);
+	aSunCalcRightAscension();
+	aSunCalcDeclination();
+	aSunCalcVariableY();
+	aSunCalcEquationOfTime();
 
 	return;
 }

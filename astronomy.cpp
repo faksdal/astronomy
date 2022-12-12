@@ -4,12 +4,11 @@
  *  Created on: 16 Nov 2022
  *      Author: jole
  *
- *      Driver file for classes jdnMeeus1998 and sp.
+ *      Driver program for testing my astronomy structures
  *
- *      This file is used to test class jdnMeeus1998{} and class sp{}.
+ * 
  *
  */
-
 #include <iostream>
 #include <iomanip>
 #include <getopt.h>
@@ -17,12 +16,9 @@
 
 using namespace std;
 
-//#include "printUsage.h"
-
 #include "aSun.h"
 #include "julianDay.h"
 #include "parseOptarg.h"
-//#include "aSun.h"
 
 
 
@@ -60,15 +56,15 @@ int main(int argc, char *argv[])
 
 	//	Initialise command line variables to some default values, should the user fail to provide...
 	//	This is for development purpose only, not to enter production code.
-	year		= 2020;
-	month		= 6;
-	day			= 21;
-	hour		= 10;
+	year		= 2000;
+	month		= 1;
+	day			= 1;
+	hour		= 12;
 	minute		= 0;
 	second		= 0;
-	timezone	= 10;
-	lat			= -37.81998;
-	lon			= 144.983431;
+	timezone	= 0;
+	lat			= 64.81998;
+	lon			= 11.983431;
 	dst			= 0;
 
 
@@ -141,16 +137,7 @@ int main(int argc, char *argv[])
 
 	aSun *sun = new aSun(year, month, day, hour, minute, second, timezone, lat, lon, dst, verbose);
 
-	cout << "Sun's geometric mean longitude: " << sun->aSunGetGeometricMeanLongitude() << endl;
-	cout << "Sun's mean anomaly: " << sun->aSunGetMeanAnomaly() << endl;
-
-	//	handle any error that might occur
-	/*if(!sl){
-		cout << "Allocation failed: " << "memory Error" << '\n';
-		exit(-1);
-	}
-	cout << "Sun's geometric mean longitude: " << sl->slGetGeometricMeanLongitude() << endl;
+	sun->aSunPrintOutput();
 
 	return 1;
-	*/
 }	//	int main(int argc, char *argv[])
