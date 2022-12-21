@@ -56,9 +56,9 @@ int main(int argc, char *argv[])
 
 	//	Initialise command line variables to some default values, should the user fail to provide...
 	//	This is for development purpose only, not to enter production code.
-	year		= 2000;
-	month		= 1;
-	day			= 1;
+	year		= 2022;
+	month		= 12;
+	day			= 21;
 	hour		= 12;
 	minute		= 0;
 	second		= 0;
@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
 	//
 	//	getopt() switch statement
 	//
-	//	TODO Im plement a proper help-screen for the user
+	//	TODO Implement a proper help-screen for the user
 	//
 	while((c = getopt_long(argc, argv, shortOptions, longOptions, &optionIndex)) != -1){
 			switch(c){

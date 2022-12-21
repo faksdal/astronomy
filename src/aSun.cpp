@@ -47,6 +47,7 @@ aSun::aSun(	int		_year,
 
 	double T = jdnGetJdnJulianCentury();
 
+
 	aSunCalcGeometricMeanLongitude(T);
 	aSunCalcMeanAnomaly(T);
 	aSunCalcEccentricityOfEarthsOrbit(T);
@@ -62,6 +63,7 @@ aSun::aSun(	int		_year,
 	aSunCalcDeclination();
 	aSunCalcVariableY();
 	aSunCalcEquationOfTime();
+
 
 	return;
 }

@@ -8,6 +8,8 @@
 //
 // TODO - describe what we're calculating here...
 //
+//	p.185 Meeus 28.3 low accuracy
+//
 void aSun::aSunCalcEquationOfTime(void)
 {
 	aSunEquationOfTime	=	4. * DEGREES(aSunVariableY * sin(2. * RADIANS(aSunGeometricMeanLongitude)) -
@@ -20,6 +22,8 @@ void aSun::aSunCalcEquationOfTime(void)
 							sin(4 * RADIANS(aSunGeometricMeanLongitude)) -
 							1.25 * aSunEccentricityOfEarthsOrbit * aSunEccentricityOfEarthsOrbit *
 							sin(2. * RADIANS(aSunMeanAnomaly)));
+
+	//aSunEquationOfTime	=	4;
 
 
 }
