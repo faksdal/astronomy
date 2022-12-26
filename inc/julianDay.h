@@ -70,7 +70,7 @@ class julianDay {
 			//	These are the calculated values for JDN and the Julian Century (JC)
 			//	I also keep the JDN and JC for noon, to be used for calculating
 			//	the day of the week, sunrise an sunset
-	double	jdnJulianDay, jdnJulianCentury, jdnJdnNoon, jdnJulianCenturyNoon, jdnJ2000, jdnJulianMillenia, jdnJulianMilleniaNoon;
+	long double	jdnJulianDay, jdnJulianCentury, jdnJdnNoon, jdnJulianCenturyNoon, jdnJ2000, jdnJulianMillennia, jdnJulianMillenniaNoon;
 
 	//enum Days {Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday};
 	//Days	dayOfWeek;
@@ -99,12 +99,12 @@ public:
 	short	jdnGetJdnMinute(void)				{ return jdnMinute; }
 	short	jdnGetJdnSecond(void)				{ return jdnSecond; }
 	short	jdnGetJdnTz(void)					{ return jdnTz; }
-	double	jdnGetJdnJulianDay(void)			{ return jdnJulianDay; }
-	double	jdnGetJdnNoon(void)					{ return jdnJdnNoon; }
-	double	jdnGetJdnJulianCentury(void)		{ return jdnJulianCentury; }
-	double	jdnGetJdnJulianCenturyNoon(void)	{ return jdnJulianCenturyNoon; }
-	double	jdnGetJdnJulianMillenia(void)		{ return jdnJulianMillenia; }
-	double	jdnGetJdnJulianMilleniaNoon(void)	{ return jdnJulianMilleniaNoon; }
+	long double	jdnGetJdnJulianDay(void)			{ return jdnJulianDay; }
+	long double	jdnGetJdnNoon(void)					{ return jdnJdnNoon; }
+	long double	jdnGetJdnJulianCentury(void)		{ return jdnJulianCentury; }
+	long double	jdnGetJdnJulianCenturyNoon(void)	{ return jdnJulianCenturyNoon; }
+	long double	jdnGetJdnJulianMillenia(void)		{ return jdnJulianMillennia; }
+	long double	jdnGetJdnJulianMilleniaNoon(void)	{ return jdnJulianMillenniaNoon; }
 
 	bool	jdnGetIsLeap(void)					{ return jdnIsLeap; }
 

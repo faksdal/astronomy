@@ -8,7 +8,7 @@
 //
 // TODO - describe what we're calculating here...
 //
-void aSun::aSunCalcApparentLongitude(double T)
+void aSun::aSunCalcApparentLongitude(long double T)
 {
 	aSunApparentLongitude	=		aSunTrueGeometricLongitude
 								-	0.00569

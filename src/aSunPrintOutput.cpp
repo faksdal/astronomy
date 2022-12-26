@@ -36,6 +36,7 @@ void aSun::aSunPrintOutput(void)
 	// *************************************************************************************************
 
 
+
 	cout	<< "      Julian Day Number (jdn): " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION) << setfill(' ') << jdnGetJdnJulianDay() << endl;
 	cout	<< "    Julian Day Number at noon: " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION) <<  jdnGetJdnNoon() << endl;
 	cout	<< "               Julian Century: " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION) << jdnGetJdnJulianCentury() << endl;
@@ -60,6 +61,7 @@ void aSun::aSunPrintOutput(void)
 	cout	<< "                                Sun's declination: " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << aSunDeclination << "°" << endl;
 	cout	<< "                                       Variable Y: " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << aSunVariableY << endl;
 	cout	<< "                                 Equation of time: " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << aSunEquationOfTime << endl;
+
 	/*cout	<< "                      sunHaSunrise: " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << sunHaSunrise << endl;
 	cout	<< "       sunLocalSolarNoon (decimal): " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << sumLocalSolarNoon << endl;
 	cout	<< "      sunLocalSolarNoon (hh:mm:ss): " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << timeStringFromDecimal(sunLocalSolarNoon) << endl;

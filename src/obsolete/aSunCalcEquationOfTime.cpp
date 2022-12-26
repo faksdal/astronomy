@@ -22,8 +22,11 @@ void aSun::aSunCalcEquationOfTime(void)
 							sin(4 * RADIANS(aSunGeometricMeanLongitude)) -
 							1.25 * aSunEccentricityOfEarthsOrbit * aSunEccentricityOfEarthsOrbit *
 							sin(2. * RADIANS(aSunMeanAnomaly)));
+	//cout << "EOT: " << aSunEquationOfTime << endl;
 
 	//aSunEquationOfTime	=	4;
+
+	//cout << "EOT: " << aSunEquationOfTime << endl;
 
 
 }

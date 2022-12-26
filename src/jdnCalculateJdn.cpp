@@ -48,7 +48,7 @@ void julianDay::jdnCalculateJdn(void)
 				//
 				//A	=	floor(jdnYear/100);
 				//int B	=	2 - A + floor(A/4);
-				B	=	2 - (floor(jdnYear/100)) + floor((floor(jdnYear/100))/4);
+				B	=	2 - (floor(jdnYear/100.)) + floor((floor(jdnYear/100.))/4.);
 
 
 
@@ -59,11 +59,13 @@ void julianDay::jdnCalculateJdn(void)
 		//	I keep a separate variable, jdnJdnNoon, for the start of the jdn. I believe it will be useful for calculating
 		//	sunrise and sunsets later in the project.
 		//
-		jdnJulianDay = jdnJdnNoon	=		floor(365.25 * (Y + 4716))
-										+	floor(30.6001 * (M + 1))
+		jdnJulianDay = jdnJdnNoon	=		floor(365.25 * (Y + 4716.))
+										+	floor(30.6001 * (M + 1.))
 										+	jdnDay + B - 1524.5;
 		jdnJdnNoon += 0.5;
-		cout	<< "      Julian Day Number (jdn): " << setw(15) << setprecision(15) << setfill(' ') << jdnGetJdnJulianDay() << endl;
+
+		if(jdnVerbose)
+			cout	<< "      Julian Day Number (jdn): " << setw(30) << setprecision(15) << setfill(' ') << jdnGetJdnJulianDay() << endl;
 
 
 
@@ -71,7 +73,9 @@ void julianDay::jdnCalculateJdn(void)
 		// Calculate the fraction of the day
 		//
 		jdnJulianDay += (((jdnHour - jdnTz) + (jdnMinute / 60.) + (jdnSecond / 3600.) ) / 24.);
-		cout	<< "      Julian Day Number (jdn): " << setw(15) << setprecision(15) << setfill(' ') << jdnGetJdnJulianDay() << endl;
+
+		if(jdnVerbose)
+			cout	<< "      Julian Day Number (jdn): " << setw(30) << setprecision(15) << setfill(' ') << jdnGetJdnJulianDay() << endl;
 
 		//
 		// Calculating Julian Century according to p.163 in Jean Meeus Astronomical Algorithms Second Edition published in 1998.
@@ -79,8 +83,8 @@ void julianDay::jdnCalculateJdn(void)
 		jdnJulianCentury		= ((jdnJulianDay - jdnJ2000) / 36525.);
 		jdnJulianCenturyNoon	= ((jdnJdnNoon - jdnJ2000) / 36525.);
 
-		jdnJulianMillenia		= ((jdnJulianDay - jdnJ2000) / 365250.);
-		jdnJulianMilleniaNoon	= ((jdnJdnNoon - jdnJ2000) / 365250.);
+		jdnJulianMillennia		= ((jdnJulianDay - jdnJ2000) / 365250.);
+		jdnJulianMillenniaNoon	= ((jdnJdnNoon - jdnJ2000) / 365250.);
 
 
 		return;

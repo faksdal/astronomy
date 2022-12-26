@@ -69,7 +69,7 @@ julianDay::julianDay(int year, short month, short day, short hour, short minute,
 	//	This is a fixed value used to calculate Julian century.
 	//	See Meeus, Jean Astronomical Algorithms second edition p.163 (25.1)
 	//
-	jdnJ2000	= 2451545.;
+	jdnJ2000	= 2451545.0;
 
 
 

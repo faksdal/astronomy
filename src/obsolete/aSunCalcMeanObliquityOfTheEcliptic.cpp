@@ -8,7 +8,7 @@
 //
 // TODO - describe what we're calculating here...
 //
-void aSun::aSunCalcMeanObliquityOfTheEcliptic(double T)
+void aSun::aSunCalcMeanObliquityOfTheEcliptic(long double T)
 {
 	aSunMeanObliquityOfTheEcliptic	= 23. + (26. + ((21.448 - T * (46.815 + T * (0.00059 - T * 0.001813)))) / 60.) / 60.;
 }

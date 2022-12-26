@@ -8,7 +8,7 @@
 //
 // TODO - describe what we're calculating here...
 //
-void aSun::aSunCalcEccentricityOfEarthsOrbit(double T)
+void aSun::aSunCalcEccentricityOfEarthsOrbit(long double T)
 {
 	aSunEccentricityOfEarthsOrbit = 0.016708634 - (T * 0.000042037) - (0.0000001267 * T * T);
 }

@@ -8,10 +8,10 @@
 //
 // TODO - describe what we're calculating here...
 //
-void aSun::aSunCalcObliquityCorrection(double T)
+void aSun::aSunCalcObliquityCorrection(long double T)
 {
 	aSunObliquityCorrection	=		aSunMeanObliquityOfTheEcliptic
-								+	0.00256 * cos(RADIANS(125.04 - 1934.136 * T));
+								+	(long double)0.00256 * cos(RADIANS((long double)125.04 - (long double)1934.136 * T));
 }
 
 /*

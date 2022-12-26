@@ -8,7 +8,7 @@
 //
 // TODO - describe what we're calculating here...
 //
-void aSun::HA_aSunCalcMeanObliquityOfTheEcliptic(double T)
+void aSun::HA_aSunCalcMeanObliquityOfTheEcliptic(long double T)
 {
 	double U = T/100.;
 

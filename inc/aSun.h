@@ -71,6 +71,8 @@ using namespace std;
 #include <iomanip>
 #include <iostream>
 
+#include <math.h>
+
 #include "julianDay.h"
 
 
@@ -89,21 +91,22 @@ class aSun : public julianDay {
 	//	This values will give you the geocentric planetary positions
 	//	See Meeus p.163
 	//
-	double	aSunGeometricMeanLongitude;			//	Meeus p.163 (25.2)
-	double	aSunMeanAnomaly;					//	Meeus p.163 (25.3)
-	double	aSunEccentricityOfEarthsOrbit;		//	Meeus p.163 (25.4)
-	double	aSunEquationOfTheCenter;			//	Meeus p.164
-	double	aSunTrueGeometricLongitude;			//	Meeus p.164
-	double	aSunTrueAnomaly;					//	Meeus p.164
-	double	aSunRadiusVector;					//	Meeus p.164	(25.5)
-	double	aSunApparentLongitude;				//	Meeus p.164
-	double	aSunMeanObliquityOfTheEcliptic;		//	Meeus p.147 (22.2)
-	double	HA_aSunMeanObliquityOfTheEcliptic;	//	Meeus p.147 High accuracy (22.3)
-	double	aSunObliquityCorrection;
-	double	aSunRightAscension;
-	double	aSunDeclination;
-	double	aSunVariableY;						// See https://en.wikipedia.org/wiki/Equation_of_time
-	double	aSunEquationOfTime;					//	Meeus p.183 ()
+	long double	aSunGeometricMeanLongitude;			//	Meeus p.163 (25.2)
+	long double	aSunMeanAnomaly;					//	Meeus p.163 (25.3)
+	long double	aSunEccentricityOfEarthsOrbit;		//	Meeus p.163 (25.4)
+	long double	aSunEquationOfTheCenter;			//	Meeus p.164
+	long double	aSunTrueGeometricLongitude;			//	Meeus p.164
+	long double	aSunTrueAnomaly;					//	Meeus p.164
+	long double	aSunRadiusVector;					//	Meeus p.164	(25.5)
+	long double	aSunApparentLongitude;				//	Meeus p.164
+	long double	aSunMeanObliquityOfTheEcliptic;		//	Meeus p.147 (22.2)
+	long double	HA_aSunMeanObliquityOfTheEcliptic;	//	Meeus p.147 High accuracy (22.3)
+	long double	aSunObliquityCorrection;			//
+	long double	aSunRightAscension;					//
+	long double	aSunDeclination;					//
+	long double	aSunVariableY;						// See https://en.wikipedia.org/wiki/Equation_of_time
+	long double	aSunEquationOfTime;					//	Meeus p.183 ()
+	long double	aSunHaSunrise;						//
 	/*
 	 *
 	 *
@@ -112,7 +115,7 @@ class aSun : public julianDay {
 		,
 
 
-		spHaSunrise,
+
 		spLocalSolarNoon,
 		spLocalSunRise,
 		spLocalSunSet,
@@ -120,19 +123,24 @@ class aSun : public julianDay {
 	 *
 	 */
 
+	//*************************************************************************
+	//
+	//	Private functions doing the calculations
+	void	aSunCalcCelestial(long double T);
+	//*************************************************************************
 
 	//*************************************************************************
-	void	aSunCalcGeometricMeanLongitude(double T);
-	void	aSunCalcMeanAnomaly(double T);
-	void	aSunCalcEccentricityOfEarthsOrbit(double T);
-	void	aSunCalcEquationOfTheCenter(double T);
+	void	aSunCalcGeometricMeanLongitude(long double T);
+	void	aSunCalcMeanAnomaly(long double T);
+	void	aSunCalcEccentricityOfEarthsOrbit(long double T);
+	void	aSunCalcEquationOfTheCenter(long double T);
 	void	aSunCalcTrueGeometricLongitude(void);
 	void	aSunCalcTrueAnomaly(void);
 	void	aSunCalcRadiusVector(void);
-	void	aSunCalcApparentLongitude(double T);
-	void	aSunCalcMeanObliquityOfTheEcliptic(double T);
-	void	HA_aSunCalcMeanObliquityOfTheEcliptic(double T);
-	void	aSunCalcObliquityCorrection(double T);
+	void	aSunCalcApparentLongitude(long double T);
+	void	aSunCalcMeanObliquityOfTheEcliptic(long double T);
+	void	HA_aSunCalcMeanObliquityOfTheEcliptic(long double T);
+	void	aSunCalcObliquityCorrection(long double T);
 	void	aSunCalcRightAscension(void);
 	void	aSunCalcDeclination(void);
 	void	aSunCalcVariableY(void);
@@ -142,8 +150,8 @@ class aSun : public julianDay {
 	//*************************************************************************
 	//	Private, inline functions to calculate back and forth between radians and degrees
 	//
-	double		RADIANS(double degrees) {return (degrees * M_PI / 180);}
-	double		DEGREES(double radians) {return (radians * 180 / M_PI);}
+	long double	RADIANS(long double degrees) {return (degrees * M_PI / 180);}
+	long double	DEGREES(long double radians) {return (radians * 180 / M_PI);}
 	//***********************************************************************************
 
 

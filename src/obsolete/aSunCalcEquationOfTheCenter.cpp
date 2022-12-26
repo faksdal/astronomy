@@ -9,7 +9,7 @@
 // TODO - describe what we're calculating here...
 //	https://en.wikipedia.org/wiki/Equation_of_the_center
 //
-void aSun::aSunCalcEquationOfTheCenter(double T)
+void aSun::aSunCalcEquationOfTheCenter(long double T)
 {
 		double M	=	aSunMeanAnomaly;
 

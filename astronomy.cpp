@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 	hour		= 12;
 	minute		= 0;
 	second		= 0;
-	timezone	= 0;
+	timezone	= 1;
 	lat			= 64.81998;
 	lon			= 11.983431;
 	dst			= 0;
