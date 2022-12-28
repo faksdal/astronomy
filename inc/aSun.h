@@ -107,21 +107,10 @@ class aSun : public julianDay {
 	long double	aSunVariableY;						// See https://en.wikipedia.org/wiki/Equation_of_time
 	long double	aSunEquationOfTime;					//	Meeus p.183 ()
 	long double	aSunHaSunrise;						//
-	/*
-	 *
-	 *
+	long double	aSunLocalSolarNoon;					//
+	long double	aSunLocalSunRise;					//
+	long double	aSunLocalSunSet;					//
 
-
-		,
-
-
-
-		spLocalSolarNoon,
-		spLocalSunRise,
-		spLocalSunSet,
-
-	 *
-	 */
 
 	//*************************************************************************
 	//
@@ -152,7 +141,9 @@ class aSun : public julianDay {
 	//
 	long double	RADIANS(long double degrees) {return (degrees * M_PI / 180);}
 	long double	DEGREES(long double radians) {return (radians * 180 / M_PI);}
-	//***********************************************************************************
+	//*************************************************************************
+
+	char*	timeStringFromDecimal(long double time);
 
 
 

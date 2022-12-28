@@ -18,7 +18,7 @@ void aSun::aSunPrintOutput(void)
 			<<":" << setw(2) << setfill('0') << jdnGetJdnMinute()
 			<< ":" << setw(2) << setfill('0') << jdnGetJdnSecond() << endl;
 
-	cout	<< "Timezone: " << jdnGetJdnTz() << endl;
+	cout	<< " Timezone: " << jdnGetJdnTz() << endl;
 	//	TODO Correct the precision formatters for Lat/Lon print
 	cout	<< "  Lat/Lon: " << setw(12) << setprecision(8) << aSunLat << "°/" << setw(12) << setprecision(8) << aSunLon << "°" << endl;
 	cout << endl;
@@ -61,16 +61,15 @@ void aSun::aSunPrintOutput(void)
 	cout	<< "                                Sun's declination: " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << aSunDeclination << "°" << endl;
 	cout	<< "                                       Variable Y: " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << aSunVariableY << endl;
 	cout	<< "                                 Equation of time: " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << aSunEquationOfTime << endl;
+	cout	<< "                                     sunHaSunrise: " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << aSunHaSunrise << endl;
+	cout	<< "                      sunLocalSolarNoon (decimal): " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << aSunLocalSolarNoon << endl;
+	cout	<< "                     sunLocalSolarNoon (hh:mm:ss): " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << timeStringFromDecimal(aSunLocalSolarNoon) << endl;
 
-	/*cout	<< "                      sunHaSunrise: " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << sunHaSunrise << endl;
-	cout	<< "       sunLocalSolarNoon (decimal): " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << sumLocalSolarNoon << endl;
-	cout	<< "      sunLocalSolarNoon (hh:mm:ss): " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << timeStringFromDecimal(sunLocalSolarNoon) << endl;
-
-	if(sunHaSunrise != -1){
-		//cout	<< "                     localSunRise: " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << sunLocalSunRise << endl;
-		cout	<< "          localSunRise (hh:mm:ss): " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << timeStringFromDecimal(sunLocalSunRise) << endl;
-		//cout	<< "                      localSunSet: " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << sunLocalSunSet << endl;
-		cout	<< "           localSunSet (hh:mm:ss): " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << timeStringFromDecimal(sunLocalSunSet) << endl;
+	if(aSunHaSunrise != -1){
+		cout	<< "                                 localSunRise: " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << aSunLocalSunRise << endl;
+		cout	<< "                      localSunRise (hh:mm:ss): " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << timeStringFromDecimal(aSunLocalSunRise) << endl;
+		cout	<< "                                  localSunSet: " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << aSunLocalSunSet << endl;
+		cout	<< "                       localSunSet (hh:mm:ss): " << setw(aSunFLOATWIDTH) << setprecision(aSunFLOATPRECISION)  << timeStringFromDecimal(aSunLocalSunSet) << endl;
 	}
 	else{
 		cout << "     Sun above or below horizon\n";
@@ -79,6 +78,5 @@ void aSun::aSunPrintOutput(void)
 	cout << endl;
 
 	return;
-*/
 }
 

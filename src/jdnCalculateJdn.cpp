@@ -64,8 +64,8 @@ void julianDay::jdnCalculateJdn(void)
 										+	jdnDay + B - 1524.5;
 		jdnJdnNoon += 0.5;
 
-		if(jdnVerbose)
-			cout	<< "      Julian Day Number (jdn): " << setw(30) << setprecision(15) << setfill(' ') << jdnGetJdnJulianDay() << endl;
+		//if(jdnVerbose)
+			//cout	<< "      Julian Day Number (jdn): " << setw(30) << setprecision(15) << setfill(' ') << jdnGetJdnJulianDay() << endl;
 
 
 
@@ -74,8 +74,8 @@ void julianDay::jdnCalculateJdn(void)
 		//
 		jdnJulianDay += (((jdnHour - jdnTz) + (jdnMinute / 60.) + (jdnSecond / 3600.) ) / 24.);
 
-		if(jdnVerbose)
-			cout	<< "      Julian Day Number (jdn): " << setw(30) << setprecision(15) << setfill(' ') << jdnGetJdnJulianDay() << endl;
+		//if(jdnVerbose)
+			//cout	<< "      Julian Day Number (jdn): " << setw(30) << setprecision(15) << setfill(' ') << jdnGetJdnJulianDay() << endl;
 
 		//
 		// Calculating Julian Century according to p.163 in Jean Meeus Astronomical Algorithms Second Edition published in 1998.

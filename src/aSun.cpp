@@ -41,17 +41,15 @@ aSun::aSun(	int		_year,
 	aSunFLOATWIDTH		= 30;
 	aSunFLOATPRECISION	= 15;
 
-	aSunLat	= _lat;
-	aSunLon	= _lon;
+	aSunLat			= _lat;
+	aSunLon			= _lon;
+	aSunTimeZone	= _tz;
+	aSunDst			= _dst;
 
-	long double T = jdnGetJdnJulianCentury();
+	//long double T = jdnGetJdnJulianCentury();
+	long double T = jdnGetJdnJulianCenturyNoon();
 	//T = jdnGetJdnJulianCenturyNoon();
 	aSunCalcCelestial(T);
-
-
-
-
-
 
 	return;
 }

@@ -192,5 +192,44 @@ void aSun::aSunCalcCelestial(long double T)
 	//aSunCalcEquationOfTime();
 	//*************************************************************************
 
+	//*************************************************************************
+	//
+	//	Calculate HASunrise
+	//
+	aSunHaSunrise	=	DEGREES(acos(cos(RADIANS(90.833))
+					/	(cos(RADIANS(aSunLat))
+					*	cos(RADIANS(aSunDeclination)))
+					-	tan(RADIANS(aSunLat))
+					*	tan(RADIANS(aSunDeclination))));
 
+		if(isnan(aSunHaSunrise)){
+			aSunHaSunrise = -1.;
+			cout << "No sunrise/sunset!" << endl;
+		}
+	//
+	//*************************************************************************
+
+	//*************************************************************************
+	//
+	//	Calculate Local Solar Noon
+	//
+	aSunLocalSolarNoon	= (720. + (aSunDst) - (4. * aSunLon) - aSunEquationOfTime + (aSunTimeZone * 60.)) / 1440.;
+	//
+	//*************************************************************************
+
+	//*************************************************************************
+	//
+	//	Calculate local sunrise time
+	//
+	aSunLocalSunRise		= aSunLocalSolarNoon - ((aSunHaSunrise * 4.) / 1440.);
+	//
+	//*************************************************************************
+
+	//*************************************************************************
+	//
+	//	Calculate local sunset time
+	//
+	aSunLocalSunSet = aSunLocalSolarNoon + ((aSunHaSunrise * 4.) / 1440.);
+	//
+	//*************************************************************************
 }
