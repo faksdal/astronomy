@@ -14,7 +14,7 @@ void aSun::aSunCalcCelestial(long double T)
 	//
 	//	Calculate the Sun's mean geometric longitude
 	//
-	aSunGeometricMeanLongitude = fmod((long double)280.46646 + T * ((long double)36000.76983 + T * (long double)0.0003032), (long double)360.);
+	aSunGeometricMeanLongitude = fmod((long double)280.4664567 + T * ((long double)36000.76983 + T * (long double)0.0003032), (long double)360.);
 	//aSunGeometricMeanLongitude = fmod(280.4664567 + T * (36000.76983 + T * 0.0003032), 360.);
 	//
 	//	Correct for negative values...
@@ -23,6 +23,7 @@ void aSun::aSunCalcCelestial(long double T)
 		aSunGeometricMeanLongitude += 360.;
 	//aSunCalcGeometricMeanLongitude(T);
 	//*************************************************************************
+
 
 	//*************************************************************************
 	//
@@ -37,6 +38,7 @@ void aSun::aSunCalcCelestial(long double T)
 	//aSunCalcMeanAnomaly(T);
 	//*************************************************************************
 
+
 	//*************************************************************************
 	//
 	//	Calculate the eccentricity of Earths orbit around the Sun
@@ -44,6 +46,7 @@ void aSun::aSunCalcCelestial(long double T)
 	aSunEccentricityOfEarthsOrbit = 0.016708634 - (T * 0.000042037) - (0.0000001267 * T * T);
 	//aSunCalcEccentricityOfEarthsOrbit(T);
 	//*************************************************************************
+
 
 	//*************************************************************************
 	//
@@ -57,6 +60,7 @@ void aSun::aSunCalcCelestial(long double T)
 	//aSunCalcEquationOfTheCenter(T);
 	//*************************************************************************
 
+
 	//*************************************************************************
 	//
 	//	Calculate the true geometric longitude of the Sun
@@ -65,6 +69,7 @@ void aSun::aSunCalcCelestial(long double T)
 	//aSunCalcTrueGeometricLongitude();
 	//*************************************************************************
 
+
 	//*************************************************************************
 	//
 	//	Calculate the true anomaly of the Sun
@@ -72,6 +77,7 @@ void aSun::aSunCalcCelestial(long double T)
 	//
 	//aSunCalcTrueAnomaly();
 	//*************************************************************************
+
 
 	//*************************************************************************
 	//
@@ -84,6 +90,7 @@ void aSun::aSunCalcCelestial(long double T)
 	//aSunCalcRadiusVector();
 	//*************************************************************************
 
+
 	//*************************************************************************
 	//
 	//	Calculate the Sun's apparent longitude λ (lambda)
@@ -94,6 +101,7 @@ void aSun::aSunCalcCelestial(long double T)
 	//aSunCalcApparentLongitude(T);
 	//*************************************************************************
 
+
 	//*************************************************************************
 	//
 	//	Calculate the mean obliquity of the ecliptic
@@ -101,6 +109,7 @@ void aSun::aSunCalcCelestial(long double T)
 	aSunMeanObliquityOfTheEcliptic	= 23. + (26. + ((21.448 - T * (46.815 + T * (0.00059 - T * 0.001813)))) / 60.) / 60.;
 	//aSunCalcMeanObliquityOfTheEcliptic(T);
 	//*************************************************************************
+
 
 	//*************************************************************************
 	//
@@ -121,6 +130,7 @@ void aSun::aSunCalcCelestial(long double T)
 											+	2.45 * U * U * U * U * U * U * U * U * U * U;
 	//HA_aSunCalcMeanObliquityOfTheEcliptic(T);
 	//*************************************************************************
+
 
 	//*************************************************************************
 	//
@@ -143,6 +153,7 @@ void aSun::aSunCalcCelestial(long double T)
 	//aSunCalcObliquityCorrection(T);
 	//*************************************************************************
 
+
 	//*************************************************************************
 	//
 	//	Calculate the Sun's right ascension
@@ -157,6 +168,7 @@ void aSun::aSunCalcCelestial(long double T)
 	//aSunCalcRightAscension();
 	//*************************************************************************
 
+
 	//*************************************************************************
 	//
 	//	Calculate the Sun's declination
@@ -166,6 +178,7 @@ void aSun::aSunCalcCelestial(long double T)
 	//aSunCalcDeclination();
 	//*************************************************************************
 
+
 	//*************************************************************************
 	//
 	//	Calculate variable Y
@@ -174,6 +187,7 @@ void aSun::aSunCalcCelestial(long double T)
 	//
 	//aSunCalcVariableY();
 	//*************************************************************************
+
 
 	//*************************************************************************
 	//
@@ -189,8 +203,9 @@ void aSun::aSunCalcCelestial(long double T)
 							sin(4 * RADIANS(aSunGeometricMeanLongitude)) -
 							1.25 * aSunEccentricityOfEarthsOrbit * aSunEccentricityOfEarthsOrbit *
 							sin(2. * RADIANS(aSunMeanAnomaly)));
-	//aSunCalcEquationOfTime();
+	//	aSunCalcEquationOfTime();
 	//*************************************************************************
+
 
 	//*************************************************************************
 	//
@@ -206,8 +221,9 @@ void aSun::aSunCalcCelestial(long double T)
 			aSunHaSunrise = -1.;
 			cout << "No sunrise/sunset!" << endl;
 		}
-	//
+	//	Calculate HASunrise
 	//*************************************************************************
+
 
 	//*************************************************************************
 	//
@@ -217,6 +233,7 @@ void aSun::aSunCalcCelestial(long double T)
 	//
 	//*************************************************************************
 
+
 	//*************************************************************************
 	//
 	//	Calculate local sunrise time
@@ -225,6 +242,7 @@ void aSun::aSunCalcCelestial(long double T)
 	//
 	//*************************************************************************
 
+
 	//*************************************************************************
 	//
 	//	Calculate local sunset time
@@ -232,4 +250,5 @@ void aSun::aSunCalcCelestial(long double T)
 	aSunLocalSunSet = aSunLocalSolarNoon + ((aSunHaSunrise * 4.) / 1440.);
 	//
 	//*************************************************************************
-}
+
+}	//	void aSun::aSunCalcCelestial(long double T)

@@ -18,6 +18,7 @@ using namespace std;
 
 #include "aSun.h"
 #include "julianDay.h"
+#include "printUsage.h"
 #include "parseOptarg.h"
 
 
@@ -63,8 +64,8 @@ int main(int argc, char *argv[])
 	minute		= 0;
 	second		= 0;
 	timezone	= 1;
-	lat			= 64.680446;	//	Oppi Leite
-	lon			= 11.291285;	//	Oppi Leite
+	lat			= 64.68059;	//	Oppi Leite
+	lon			= 11.29153;	//	Oppi Leite
 	dst			= 0;
 
 
@@ -122,8 +123,8 @@ int main(int argc, char *argv[])
 								break;
 							}
 				case 'h':	{
-								//printUsage();
-								cout << "Add some useful information on how to use this software..." << endl;
+								printUsage();
+								//cout << "Add some useful information on how to use this software..." << endl;
 								exit(1);
 							}
 				default:	{

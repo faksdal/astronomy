@@ -32,6 +32,9 @@ using namespace std;
 
 
 
+//
+//	TODO	This can be an inline function...
+//
 const char*	julianDay::jdnGetDayName(void)
 {
 	/*
@@ -49,6 +52,8 @@ const char*	julianDay::jdnGetDayName(void)
 	return dayOfTheWeek[long(jdnJdnNoon+1) % (7)];
 	//return dayName[quotient];
 }
+
+
 
 julianDay::julianDay(int year, short month, short day, short hour, short minute, short second, short tz, bool verbose)
 {
@@ -102,7 +107,7 @@ julianDay::julianDay(int year, short month, short day, short hour, short minute,
 	//
 	//int K = jdnIsLeap==true ? 1 : 2;
 	//cout << "K = " << K << endl;
-	jdnDayOfTheYear = int((275*jdnMonth) / 9) - ((jdnIsLeap ? 1 : 2) * int((jdnMonth + 9)/12)) + jdnDay - 30;
+	jdnDayOfTheYear = int((275 * jdnMonth) / 9) - ((jdnIsLeap ? 1 : 2) * int((jdnMonth + 9) / 12)) + jdnDay - 30;
 
 	//dayOfWeek = Wednesday;
 	//cout << "Day: " << dayOfWeek << endl;
