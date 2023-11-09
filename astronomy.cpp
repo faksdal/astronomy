@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 					{"lat",		required_argument,	NULL,	4},
 					{"lon",		required_argument,	NULL,	5},
 					{"dst",		required_argument,	NULL,	6},
-					{"verbose",	no_argument,		NULL, 'v'},
+					{"verbose",	no_argument,		NULL,	'v'},
 					{"help",	no_argument,		NULL,	'h'},
 					//{"dow",		no_argument,		NULL,	'd'},
 					{0, 0, 0, 0}
@@ -57,9 +57,9 @@ int main(int argc, char *argv[])
 
 	//	Initialise command line variables to some default values, should the user fail to provide...
 	//	This is for development purpose only, not to enter production code.
-	year		= 2022;
-	month		= 12;
-	day			= 21;
+	year		= 2023;
+	month		= 9;
+	day			= 25;
 	hour		= 13;
 	minute		= 0;
 	second		= 0;
