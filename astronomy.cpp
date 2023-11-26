@@ -79,8 +79,11 @@ int main(int argc, char *argv[])
 			switch(c){
 				case 'd':	{
 								year = atoi(optarg);
+								//cout << "optarg: " << optarg << endl;
+								//cout << "Year: " << year << endl;
 								parseOptarg(&optarg);
 								month = atoi(optarg);
+								//cout << "Month: " << month << endl;
 								parseOptarg(&optarg);
 								day = atoi(optarg);
 								// end of parsing optarg

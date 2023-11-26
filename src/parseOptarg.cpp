@@ -12,7 +12,7 @@
 void parseOptarg(char **_optarg)
 {
 	//std::cout << "inside parseOptarg\n";
-	while(**_optarg != '.' /*&& **_optarg != '-' */ && **_optarg != '/' && **_optarg != ':'){
+	while(**_optarg != '.' && **_optarg != '-' && **_optarg != '/' && **_optarg != ':'){
 		(*_optarg)++;
 	}
 	(*_optarg)++;
