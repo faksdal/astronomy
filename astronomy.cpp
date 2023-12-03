@@ -143,5 +143,5 @@ int main(int argc, char *argv[])
 
 	sun->aSunPrintOutput();
 
-	return 1;
+	return 0;
 }	//	int main(int argc, char *argv[])
