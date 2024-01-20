@@ -23,4 +23,8 @@ void printUsage(void)
 	cout << " --lon		longitude, given as dd.ddddd°\n";
 	cout << " --dst		daylight savings time, given in minutes (usually 0 or 60)\n";
 
+	cout << endl;
+
+	cout << "If you don't supply date and/or time, system date and time will be used" << endl << endl;
+
 }
